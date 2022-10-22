@@ -6,6 +6,7 @@ const getUser = async () => {
 }
 
 const login = async ({email, password}: {email:string, password: string}) => {
+    await axios.get("/sanctum/csrf_cookie")
     const { data } = await axios.post('api/login', {
         email: email,
         password: password
